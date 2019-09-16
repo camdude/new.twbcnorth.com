@@ -1,0 +1,24 @@
+.section-contact {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.contact-form {
+    width: 50%;
+    padding: 4rem;
+    background: $color-white-pale;
+}
+
+.contact-details {
+    width: 50%;
+    padding: 4rem;
+
+    &__phone,
+    &__email,
+    &__facebook {
+        font-size: $default-font-size;
+        color: $color-secondary;
+    }
+}

@@ -1,0 +1,11 @@
+.card {
+    margin: .6rem;
+    padding: 2rem;
+    background-color: $color-white-pale;
+    box-shadow: 0 .6rem 1.2rem rgba($color-grey, .6);
+
+    &__content {
+        font-size: $default-font-size;
+        margin-bottom: 2rem;
+    }
+}

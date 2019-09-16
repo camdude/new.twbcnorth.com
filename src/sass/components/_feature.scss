@@ -1,0 +1,44 @@
+.feature {
+    position: relative;
+    width: 100%;    
+    height: 70vh;
+    background-image: linear-gradient(rgba($color-grey-dark, .6), rgba($color-grey-dark, .6)), url(./assets/img/feature-bible.jpg);
+    background-size: cover;
+    background-position: bottom;
+
+    &__heading {
+        cursor: default;
+        position: absolute;
+        width: 80%;
+        left: 50%;
+        top: 30%;
+        transform: translate(-50%, -50%);
+        color: $color-white;
+        text-transform: uppercase;
+        text-align: center;
+        font-size: 6rem;  
+        font-weight: 400;
+        letter-spacing: 1rem;
+        line-height: 1.2;
+        transition: all .5s;
+
+        &:hover {
+            transform: translate(-50%, -50%) skewX(-6deg);
+        }
+    }
+
+    &__content {
+        position: absolute;
+        width: 70%;
+        left: 50%;
+        bottom: 1rem;
+        transform: translate(-50%, -50%);
+        color: $color-white;
+        text-transform: uppercase;
+        text-align: center;
+        font-size: 2.5rem;  
+        font-weight: 700;
+        letter-spacing: .6rem; 
+        line-height: 1.3;     
+    }
+}

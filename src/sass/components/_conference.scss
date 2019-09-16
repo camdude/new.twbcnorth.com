@@ -1,0 +1,40 @@
+.conference {
+    display: inline-block;
+    margin: 2rem;
+    width: 50rem;
+    background-color: $color-white-pale;
+    box-shadow: 0 .5rem 1rem rgba($color-black, .4);
+    box-sizing: border-box;
+
+    &__brochure {
+        width: 100%;
+    }
+
+    &__image {
+        display: block;
+        width: 100%;
+    }
+
+    &__content {
+        padding: .5rem 1.5rem;
+        width: 100%;
+    }
+
+    &__title {
+        text-decoration: none;
+        cursor: pointer;
+
+        &:hover {
+            color: $color-tertiary;
+            text-decoration: underline;
+        }
+    }
+
+    &__date {
+
+    }
+
+    &__description {
+        font-size: $default-font-size;
+    }
+}

@@ -1,0 +1,37 @@
+.section-intro {
+
+}
+
+.section-form {
+    margin: 0 auto;
+    margin-bottom: 6rem;
+    width: 75%;
+}
+
+.register {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: $color-white-pale;
+    box-shadow: 0 .6rem 1.2rem rgba($color-grey, .6);
+
+    &__form {
+        width: 70%;
+        padding: 2rem;
+    }
+
+    &__side {
+        padding: 2rem;
+        font-size: $default-font-size;
+        background-color: $color-grey-lightest;
+        color: $color-white;
+    }
+}
+
+.list {
+    list-style: none;
+
+    &__item {
+
+    }
+}
