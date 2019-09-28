@@ -8,11 +8,11 @@ import Form from './components/Form';
 import FormInput from './components/FormInput';
 import Conference from './components/Conference';
 
-import twbc15 from './assets/img/twbc15.png'
-import twbc16 from './assets/img/twbc16.png'
-import twbc17 from './assets/img/twbc17.png'
-import twbc18 from './assets/img/twbc18.png'
-import twbc19 from './assets/img/twbc19_alt.png'
+import twbc15 from './assets/img/twbc15.png';
+import twbc16 from './assets/img/twbc16.png';
+import twbc17 from './assets/img/twbc17.png';
+import twbc18 from './assets/img/twbc18.png';
+import twbc19 from './assets/img/twbc19_alt.png';
 
 const App = props => {
   return (
