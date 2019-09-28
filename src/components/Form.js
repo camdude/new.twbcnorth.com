@@ -8,7 +8,7 @@ const form = props => {
             <h2 className="heading-secondary">{props.title}</h2>
             {props.children}
             <div className="form__group">
-                <Button className="btn">{props.btnText}</Button>
+                <Button link="" className="btn">{props.btnText}</Button>
             </div>
         </form>
     );

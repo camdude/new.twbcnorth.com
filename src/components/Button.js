@@ -1,8 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const button = props => {
     return (
-        <button className="btn">{props.children}</button>
+        <Link to={props.link} className="btn">{props.children}</Link>
     );
 }
 
