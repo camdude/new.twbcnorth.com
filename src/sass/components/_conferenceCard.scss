@@ -1,0 +1,18 @@
+.conference-card {
+  display: inline-block;
+  margin: 0 2rem 2rem 2rem;
+  min-width: 30rem;
+  width: 50rem;
+  background-color: $color-grey-light;
+  box-shadow: 0 0.5rem 1rem rgba($color-black, 0.4);
+  box-sizing: border-box;
+
+  &__details {
+    margin: 1rem 2rem;
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+  }
+}

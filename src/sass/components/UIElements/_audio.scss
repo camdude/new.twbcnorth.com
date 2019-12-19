@@ -1,0 +1,22 @@
+.audio {
+  margin-bottom: 2rem;
+
+  &__details {
+    width: 100%;
+  }
+
+  &__title {
+    float: left;
+  }
+
+  &__download {
+    display: inline-block;
+    float: right;
+  }
+
+  &__controller {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+  }
+}

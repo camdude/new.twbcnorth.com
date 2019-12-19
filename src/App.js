@@ -1,24 +1,24 @@
-import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import React from "react";
+import { Switch, Route } from "react-router-dom";
 
-import Home from './pages/Home';
-import About from './pages/About';
-import Register from './pages/Register';
-import Conferences from './pages/Conferences';
-import Contact from './pages/Contact';
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Register from "./pages/Register";
+import Conferences from "./pages/Conferences";
+import ConfPage from "./pages/ConfPage";
+import Contact from "./pages/Contact";
 
-const App = props => {
+const App = () => {
   return (
-    <div className="App">
-      <Switch>
-        <Route path="/contact" exact component={Contact}/>
-        <Route path="/conferences" exact component={Conferences}/>
-        <Route path="/register" exact component={Register}/>
-        <Route path="/about" exact component={About}/>
-        <Route path="/" component={Home}/>
-      </Switch>
-    </div>
+    <Switch>
+      <Route path="/contact" component={Contact} />
+      <Route path="/conferences/:year" component={ConfPage} />
+      <Route path="/conferences" component={Conferences} />
+      <Route path="/register" component={Register} />
+      <Route path="/about" component={About} />
+      <Route path="/" component={Home} />
+    </Switch>
   );
-}
+};
 
 export default App;

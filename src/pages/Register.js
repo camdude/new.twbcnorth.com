@@ -1,55 +1,161 @@
-import React from 'react';
+import React from "react";
 
-import Navigation from '../components/Navigation';
-import Footer from '../components/Footer';
-import Form from '../components/Form';
-import FormInput from '../components/FormInput';
+import { useForm } from "../hooks/useForm";
+import MainLayout from "../layouts/MainLayout";
+import Text from "../components/UIElements/Text";
+import Input from "../components/FormElements/Input";
+import Button from "../components/FormElements/Button";
+import {
+  RULE_VALIDATOR_REQUIRED,
+  RULE_VALIDATOR_EMAIL
+} from "../components/FormElements/validate";
 
-const register = props => {
+const Register = () => {
+  const [formState, inputHandler] = useForm({
+    first_name: {
+      value: "",
+      isValid: false
+    },
+    last_name: {
+      value: "",
+      isValid: false
+    },
+    email: {
+      value: "",
+      isValid: false
+    },
+    phone: {
+      value: "",
+      isValid: false
+    },
+    church: {
+      value: "",
+      isValid: false
+    },
+    payment: {
+      value: ""
+    },
+    diet: {
+      value: ""
+    },
+    comment: {
+      value: "",
+      isValid: false
+    }
+  });
+
+  const onRegisterSubmit = event => {
+    event.preventDefault();
+    console.log(formState);
+  };
+
   return (
-    <div className="">
-      <Navigation />
-      <main>
-        <section className="section-intro">
-          <h2 className="heading-secondary">TWBC 2020 Conference Registration</h2>
-          <p className="paragraph">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab magni praesentium ut nihil. Eius corrupti facilis nisi dignissimos esse sed, vel, fuga quas ipsum accusantium maiores incidunt! Excepturi, quas necessitatibus.</p>
-        </section>
-        <section className="section-form">
-          <div className="register">
-            <div className="register__form">
-              <Form title="Register" btnText="Register">
-                <FormInput type="text" placeholder="First Name" id="firstname"/>
-                <FormInput type="text" placeholder="Last Name" id="lastname"/>
-                <FormInput type="email" placeholder="Email" id="email"/>
-                <FormInput type="tel" placeholder="Phone Number" id="phone"/>
-                <FormInput type="text" placeholder="Church" id="church"/>
-                <FormInput input="select" placeholder="Payment" id="payment" defaultValue="null">
-                    <option value="null" disabled>Please Select</option>
-                    <option value="dd">Direct deposit</option>
-                    <option value="cip">Cheque in post</option>
-                    <option value="ctc">Cash to committee member (please specify in comments)</option>
-                </FormInput>
-                <FormInput input="select" placeholder="Special Diet" id="diet" defaultValue="none">
-                    <option value="none">None</option>
-                    <option value="gf">Gluten free</option>
-                    <option value="v">Vegetarian</option>
-                </FormInput>
-                <FormInput input="textarea" placeholder="Comments" id="comment"/>
-              </Form>
-            </div>  
-            <div className="register__side">
-              <ul className="list">
-                <li className="list__item"><span className="u-bold-text">Early Bird:</span> $30 before June 10</li>
-                <li className="list__item"><span className="u-bold-text">Standard:</span> $35 between 11-23 June</li>
-                <li className="list__item"><span className="u-bold-text">Last Minute:</span> $40 from June 24</li>
-              </ul>
-            </div>
-          </div>
-        </section>
-      </main>
-      <Footer />
-    </div>
+    <MainLayout>
+      <section className="section">
+        <Text element="h1">Conference Registration</Text>
+        <Text>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab magni
+          praesentium ut nihil. Eius corrupti facilis nisi dignissimos esse sed,
+          vel, fuga quas ipsum accusantium maiores incidunt! Excepturi, quas
+          necessitatibus.
+        </Text>
+      </section>
+      <div className="register">
+        <form className="register__form" onSubmit={onRegisterSubmit}>
+          <Text element="h3">Register</Text>
+          <Input
+            id="first_name"
+            type="text"
+            placeholder="First Name"
+            label="First Name"
+            onInput={inputHandler}
+            rules={[RULE_VALIDATOR_REQUIRED]}
+            errorMsg="Please enter your first name."
+          />
+          <Input
+            id="last_name"
+            type="text"
+            placeholder="Last Name"
+            label="Last Name"
+            onInput={inputHandler}
+            rules={[RULE_VALIDATOR_REQUIRED]}
+            errorMsg="Please enter your last name."
+          />
+          <Input
+            id="email"
+            type="email"
+            placeholder="Email"
+            label="Email"
+            onInput={inputHandler}
+            rules={[RULE_VALIDATOR_REQUIRED, RULE_VALIDATOR_EMAIL]}
+            errorMsg="Please enter a valid email."
+          />
+          <Input
+            id="phone"
+            type="tel"
+            placeholder="Phone"
+            label="Phone"
+            onInput={inputHandler}
+            rules={[RULE_VALIDATOR_REQUIRED]}
+            errorMsg="Please enter a valid phone number."
+          />
+          <Input
+            id="church"
+            type="text"
+            placeholder="Church"
+            label="Church"
+            initialValid={true}
+            onInput={inputHandler}
+          />
+          <Input
+            id="payment"
+            element="select"
+            label="Payment"
+            options={["Direct Deposit", "Cheque", "Cash"]}
+            initialValid={true}
+            onInput={inputHandler}
+            rules={[RULE_VALIDATOR_REQUIRED]}
+          />
+          <Input
+            id="diet"
+            element="select"
+            label="Special Diet"
+            options={["None", "Gluten Free", "Vegetarian"]}
+            initialValid={true}
+            onInput={inputHandler}
+            rules={[RULE_VALIDATOR_REQUIRED]}
+          />
+          <Input
+            id="comment"
+            element="textarea"
+            placeholder="Comment (optional)"
+            label="Comment"
+            initialValid={true}
+            onInput={inputHandler}
+          />
+          <Button type="submit" disabled={!formState.isFormValid}>
+            Register
+          </Button>
+        </form>
+        <div className="register__side">
+          <Text element="h3">Prices</Text>
+          <ul className="list">
+            <li className="list__item">
+              <span className="u-bold-text">Early Bird:</span> $30 before June
+              10
+            </li>
+            <li className="list__item">
+              <span className="u-bold-text">Standard:</span> $35 between 11-23
+              June
+            </li>
+            <li className="list__item">
+              <span className="u-bold-text">Last Minute:</span> $40 from June 24
+            </li>
+          </ul>
+        </div>
+      </div>
+    </MainLayout>
   );
-}
+};
 
-export default register;
+export default Register;

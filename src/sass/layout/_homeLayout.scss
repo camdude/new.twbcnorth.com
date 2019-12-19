@@ -1,0 +1,11 @@
+.home-layout {
+  
+  &__body {
+    min-height: 75vh;
+    margin-top: 6.2rem;
+
+    @include respond(tab-port) {
+      margin-top: 5.7rem;
+    }
+  }
+}
