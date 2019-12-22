@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { useForm } from "../hooks/useForm";
 import MainLayout from "../layouts/MainLayout";
+import NotificationBar from "../components/UIElements/NotificationBar";
 import Text from "../components/UIElements/Text";
 import Input from "../components/FormElements/Input";
 import Button from "../components/FormElements/Button";
@@ -43,14 +44,26 @@ const Register = () => {
       isValid: false
     }
   });
+  const [showNotif, setShowNotif] = useState(false);
+
+  const closeNotifHandler = () => {
+    setShowNotif(false);
+  };
 
   const onRegisterSubmit = event => {
     event.preventDefault();
     console.log(formState);
+    setShowNotif(true);
   };
 
   return (
     <MainLayout>
+      {showNotif && (
+        <NotificationBar onClose={closeNotifHandler}>
+          Thankyou for registering for this years Conference. Please check you
+          email for confrimation.
+        </NotificationBar>
+      )}
       <section className="section">
         <Text element="h1">Conference Registration</Text>
         <Text>

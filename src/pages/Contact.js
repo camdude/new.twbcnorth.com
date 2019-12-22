@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { useForm } from "../hooks/useForm";
 import {
@@ -10,6 +10,7 @@ import Text from "../components/UIElements/Text";
 import Input from "../components/FormElements/Input";
 import Button from "../components/FormElements/Button";
 import CardContainer from "../components/UIElements/CardContainer";
+import NotificationBar from "../components/UIElements/NotificationBar";
 
 const Contact = () => {
   const [formState, inputHandler] = useForm({
@@ -26,14 +27,27 @@ const Contact = () => {
       isValid: false
     }
   });
+  const [showNotif, setShowNotif] = useState(false);
+
+  const closeNotifHandler = () => {
+    setShowNotif(false);
+  };
 
   const onMessageSubmit = event => {
     event.preventDefault();
     console.log(formState);
+    setShowNotif(true);
   };
 
   return (
     <MainLayout>
+      {showNotif && (
+        <NotificationBar type="warning" onClose={closeNotifHandler}>
+          Thankyou for your message. We will try to contact you as soon as
+          possible.
+        </NotificationBar>
+      )}
+
       <section className="section">
         <Text element="h1">Contact Us</Text>
         <Text>
@@ -97,7 +111,7 @@ const Contact = () => {
                   errorMsg="Please enter your message."
                 />
                 <Button type="submit" disabled={!formState.isFormValid}>
-                  Register
+                  Send
                 </Button>
               </form>
             </CardContainer>

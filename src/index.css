@@ -315,6 +315,25 @@ body {
   .card__action {
     text-align: right; }
 
+.notificationBar {
+  position: fixed;
+  top: 6.2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0.8rem 2rem;
+  width: 100%;
+  background: #178556;
+  color: #fff; }
+  .notificationBar__action:hover {
+    cursor: pointer; }
+  .notificationBar--success {
+    background: #50b04d; }
+  .notificationBar--warning {
+    background: #dd820a; }
+  .notificationBar--danger {
+    background: #cc0000; }
+
 .conference-card {
   display: inline-block;
   margin: 0 2rem 2rem 2rem;

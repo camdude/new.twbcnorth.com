@@ -5,7 +5,7 @@ import Text from "../components/UIElements/Text";
 import ConferenceCard from "../components/ConferenceCard";
 
 const Conferences = () => {
-  const [conferences, setConferences] = useState([
+  const [conferences] = useState([
     {
       title: "Staying Strong in the Lord",
       date: {
@@ -41,6 +41,7 @@ const Conferences = () => {
         {conferences.map(conf => {
           return (
             <ConferenceCard
+              key={conf.date.year}
               title={conf.title}
               date={`${conf.date.month} ${conf.date.day}, ${conf.date.year}`}
               img={conf.image}

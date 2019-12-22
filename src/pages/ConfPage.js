@@ -6,7 +6,7 @@ import CardContainer from "../components/UIElements/CardContainer";
 import Audio from "../components/UIElements/Audio";
 
 const ConfPage = () => {
-  const [conference, setConference] = useState({
+  const [conference] = useState({
     title: "Staying Strong in the Lord",
     brochure: "https://twbcnorth.com/resources/images/twbc18.png",
     location: {

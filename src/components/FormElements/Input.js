@@ -40,7 +40,6 @@ const Input = props => {
       val: event.target.value,
       rules: props.rules || []
     });
-    console.log('changed')
   };
 
   const { id, onInput } = props;

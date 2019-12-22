@@ -28,6 +28,7 @@ const Text = props => {
           className={`link ${props.center && "u-center-text"}`}
           href={props.href}
           target="_blank"
+          rel="noopener noreferrer"
         >
           {props.children}
         </a>

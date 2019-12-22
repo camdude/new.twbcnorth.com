@@ -10,7 +10,7 @@ const footer = props => {
                     <ul className="footerCard__list">
                         <li className="footerCard__listItem">Email: <a className="link" href="mailto:twbcnorth@outlook.com">twbcnorth@outlook.com</a></li>
                         <li className="footerCard__listItem">Phone: <a className="link" href="tel:0422926053">0422 926 053</a></li>
-                        <li className="footerCard__listItem">Facebook: <a className="link" href="https://www.facebook.com/twbcn/" target="_blank">@twbcn</a></li>
+                        <li className="footerCard__listItem">Facebook: <a className="link" href="https://www.facebook.com/twbcn/" target="_blank" rel="noopener noreferrer">@twbcn</a></li>
                     </ul>
                 </div>
             </div>
