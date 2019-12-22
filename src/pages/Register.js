@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Recaptcha from "react-recaptcha";
 
 import { useForm } from "../hooks/useForm";
 import MainLayout from "../layouts/MainLayout";
@@ -42,18 +43,29 @@ const Register = () => {
     comment: {
       value: "",
       isValid: false
+    },
+    recaptcha: {
+      isValid: false
     }
   });
   const [showNotif, setShowNotif] = useState(false);
 
-  const closeNotifHandler = () => {
-    setShowNotif(false);
+  const recaptchaLoaded = () => {
+    inputHandler("recaptcha", "Loaded", false);
+  };
+
+  const recaptchaVerify = () => {
+    inputHandler("recaptcha", null, true);
   };
 
   const onRegisterSubmit = event => {
     event.preventDefault();
     console.log(formState);
     setShowNotif(true);
+  };
+
+  const closeNotifHandler = () => {
+    setShowNotif(false);
   };
 
   return (
@@ -145,6 +157,12 @@ const Register = () => {
             label="Comment"
             initialValid={true}
             onInput={inputHandler}
+          />
+          <Recaptcha
+            sitekey="6LdAMckUAAAAAMNpUDphJvfyzLuMgiXrg6roJULH"
+            render="explicit"
+            onloadCallback={recaptchaLoaded}
+            verifyCallback={recaptchaVerify}
           />
           <Button type="submit" disabled={!formState.isFormValid}>
             Register

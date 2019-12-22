@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Recaptcha from "react-recaptcha";
 
 import { useForm } from "../hooks/useForm";
 import {
@@ -25,12 +26,20 @@ const Contact = () => {
     message: {
       value: "",
       isValid: false
+    },
+    recaptcha: {
+      value: null,
+      isValid: false
     }
   });
   const [showNotif, setShowNotif] = useState(false);
 
-  const closeNotifHandler = () => {
-    setShowNotif(false);
+  const recaptchaLoaded = () => {
+    inputHandler("recaptcha", "Loaded", false);
+  };
+
+  const recaptchaVerify = () => {
+    inputHandler("recaptcha", null, true);
   };
 
   const onMessageSubmit = event => {
@@ -39,10 +48,14 @@ const Contact = () => {
     setShowNotif(true);
   };
 
+  const closeNotifHandler = () => {
+    setShowNotif(false);
+  };
+
   return (
     <MainLayout>
       {showNotif && (
-        <NotificationBar type="warning" onClose={closeNotifHandler}>
+        <NotificationBar onClose={closeNotifHandler}>
           Thankyou for your message. We will try to contact you as soon as
           possible.
         </NotificationBar>
@@ -109,6 +122,12 @@ const Contact = () => {
                   onInput={inputHandler}
                   rules={[RULE_VALIDATOR_REQUIRED]}
                   errorMsg="Please enter your message."
+                />
+                <Recaptcha
+                  sitekey="6LdAMckUAAAAAMNpUDphJvfyzLuMgiXrg6roJULH"
+                  render="explicit"
+                  onloadCallback={recaptchaLoaded}
+                  verifyCallback={recaptchaVerify}
                 />
                 <Button type="submit" disabled={!formState.isFormValid}>
                   Send
