@@ -12,7 +12,7 @@ const App = () => {
   return (
     <Switch>
       <Route path="/contact" component={Contact} />
-      <Route path="/conferences/:year" component={ConfPage} />
+      <Route path="/conferences/:confId" component={ConfPage} />
       <Route path="/conferences" component={Conferences} />
       <Route path="/register" component={Register} />
       <Route path="/about" component={About} />
