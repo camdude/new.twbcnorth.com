@@ -37,9 +37,9 @@ const Conferences = () => {
         <ConferenceCard
           key={conf.id}
           title={conf.title}
-          date={`${conf.date.month} ${conf.date.day}, ${conf.date.year}`}
+          date={new Date(conf.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
           img={conf.brochure}
-          alt={`${conf.date.year} Brochure`}
+          alt={`${conf.id} Brochure`}
           link={`/conferences/${conf.id}`}
         />
       );

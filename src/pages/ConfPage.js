@@ -54,7 +54,12 @@ const ConfPage = () => {
             <Text element="a" href={conference.location.map}>
               {conference.location.place}
             </Text>
-            <Text>{`${conference.date.month} ${conference.date.day}, ${conference.date.year}, ${conference.date.time.start}-${conference.date.time.end}`}</Text>
+            <Text>{`${new Date(conference.date).toLocaleDateString("en-US", {
+              weekday: "long",
+              year: "numeric",
+              month: "long",
+              day: "numeric"
+            })}, 9am - 3:30pm`}</Text>
             <Text>{conference.description}</Text>
           </CardContainer>
         </section>
@@ -62,11 +67,13 @@ const ConfPage = () => {
           <CardContainer>
             <Text element="h3">{`Speaker: ${conference.speaker.name}`}</Text>
             <div className="speaker">
-              <img
-                className="speaker__image"
-                src={conference.speaker.image}
-                alt={conference.speaker.name}
-              />
+              {conference.speaker.image && (
+                <img
+                  className="speaker__image"
+                  src={conference.speaker.image}
+                  alt={conference.speaker.name}
+                />
+              )}
               <div className="speaker__bio">
                 <Text>{conference.speaker.bio}</Text>
               </div>
