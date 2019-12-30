@@ -25,6 +25,9 @@ const ConfPage = () => {
       );
       const responseData = await response.json();
       setConference(responseData.conference);
+      if (!conference) {
+        console.log('ERROR')
+      }
     } catch (error) {
       console.log(error.message);
     }
