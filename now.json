@@ -1,4 +1,9 @@
 {
   "name": "new.twbcnorth.com",
-  "target": "frontend"
+  "type": "static",
+  "target": "/frontend",
+  "builds": [
+    { "src": "*.js", "use": "@now/js" }
+    { "src": "*.html", "use": "@now/static" }
+  ]
 }
